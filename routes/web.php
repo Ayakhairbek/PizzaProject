@@ -27,6 +27,7 @@ Route::get('/bootstrap/{name}/{id}', function ($name,$id) {
 Route::get('/bootstrap', function () {
         return view('test'); });
  Route::get('/myinformation','UserController@myinformation'); 
+ Route::get('/hello','UserController@hello'); 
  Route::get('/showupdateinfo','UserController@showupdateinfo'); 
  Route::post('/updateinfo','UserController@updateinfo'); 
  Route::get('/showchangepassword','UserController@showchangepassword'); 
@@ -69,7 +70,8 @@ Route::get('/all', 'UserController@all')->middleware('isAdmin')->name('all');
  Route::post('/password1','PasswordController@password');
 Route::get('/about', function () {
     return view('pages.about');
-})->middleware('auth'); 
+}); 
+// })->middleware('auth'); 
 
 Route::get('/allpizza', 'PizzaController@minue')->name('allpizza'); 
 Route::get('/orderto/{id}' ,'HomeController@orderto');

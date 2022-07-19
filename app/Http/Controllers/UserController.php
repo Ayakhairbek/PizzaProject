@@ -31,6 +31,13 @@ class UserController extends Controller
         return view('user.showupdateinfo')->with('user',$user);
    
        } 
+
+       public function hello () {
+     
+        return view('pages.hello');
+   
+       } 
+        
        public function updateinfo (Request $request) 
        { 
          $this->validate($request,[ 
@@ -64,9 +71,6 @@ class UserController extends Controller
         } 
         return redirect()->back();
         
- 
-        //dd($request); 
-        //dd(hash::check($request->oldpassword,$user->password),$user->password,$request->oldpassword);
 
         
 
@@ -110,13 +114,12 @@ class UserController extends Controller
           return redirect()->back();
         } 
         public function update( Request $request) {
-        //dd($request); 
         $user=User::where('id',$request->id)->first();
         $user->name=$request->name;
         $user->save();
         return redirect('/all')->with('success','user updated');
         } 
-        //printname'
+        
       
         public function showadduser() 
         {

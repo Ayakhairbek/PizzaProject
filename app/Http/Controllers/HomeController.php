@@ -35,24 +35,15 @@ class HomeController extends Controller
     {
         return view('home');
     } 
-    // public function myorder() { 
-    //     // return view('home'); 
-    //     $user=Auth::user();
-    //     $orders=Order::where('user_id',$user->id)->get();
-    //     // dd($orders);
-    //     return view('Orders.myorder',['orders'=>$orders]);
-    //     // dd($orders);
-    // } 
+     
     public function orderto ($id) { 
         $user=Auth::user();
-        //$user=User::where('role','user')->get();
-        if($user->role=='admin'){
+       
         $pizzas=Pizza::all();
         $pizz=Pizza::find($id); 
-        
         return view('admin.assignto')->with('pizzas',$pizzas)->with('pizz', $pizz);
         
-    } }
+    } 
     public function order (Request $request){ 
         //dd($request); 
         $user=Auth::user();
@@ -106,7 +97,16 @@ class HomeController extends Controller
         $order->delete();
         return  redirect('/all')->with('success','Order Accepted ');
 
-    }
+    } 
+    public function myorder () {
+        $user=auth()->user();
+        //dd($user); 
+        $orders=Order::where('user_id',$user->id)->get();
+        // dd($orders);
+        
+        return view('Orders.myorder')->with('orders',$orders);
+   
+       } 
    
 } 
 

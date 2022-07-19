@@ -20,7 +20,7 @@ class ContactController extends Controller
             $message=$request->message;
              Mail::to("ss@ss.com")
         ->send(new ContactMail($name,$email,$message));
-        return redirect()->back();
+        return redirect()->back()->with('success','Your Message has been sent ,We Will Contact You Soon , Thank you ');
          }
         
     }

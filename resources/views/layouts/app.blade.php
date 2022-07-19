@@ -17,65 +17,54 @@
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
 
     <!-- Styles -->
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/app.css') }}" rel="stylesheet"> 
+    <link href="{{ asset('css/appa.css') }}" rel="stylesheet"> 
+    
+    
+    <link rel="stylesheet" href="{{ asset('css/open-iconic-bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/animate.css') }}">
+    
+    <link rel="stylesheet" href="{{ asset('css/owl.carousel.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/owl.theme.default.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/magnific-popup.css') }}">
+
+    <link rel="stylesheet" href="{{ asset('css/aos.css') }}">
+
+    <link rel="stylesheet" href="{{ asset('css/ionicons.min.css') }}">
+
+    <link rel="stylesheet" href="{{ asset('css/bootstrap-datepicker.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/jquery.timepicker.css') }}">
+
+    
+    <link rel="stylesheet" href="{{ asset('css/flaticon.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/icomoon.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/style.css') }}">
    
     
 </head>
-<body > 
-
-    <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
-            <div class="container"> 
-                <a class="navbar-brand" href="{{ url('/allpizza') }}">HOME </a>
-                {{-- <a class="navbar-brand" href="{{ url('/allpizza') }}">allPizza </a>  --}}
-                @if (Auth::user()!=null)
-                {{-- <a class="navbar-brand" href="{{route('orders.create')}}">ADD Order</a> --}}
-                {{-- <a class="navbar-brand" href="/myorder">MY Order</a> --}}
-                @endif
-                <a class="navbar-brand" href="{{ url('/about') }}">ABOUT
-                </a>
-                @if (Auth::user()!=null)
-                <a class="navbar-brand" href="{{ url('/myinformation') }}">Profil
-                </a> 
-                <a class="navbar-brand" href="{{ url('/showupdateinfo') }}">UPDATE INFO
-                </a>
-                <a class="navbar-brand" href="{{ url('/contactus') }}">Contacts </a> 
-                @endif 
-                @if (Auth::user()!=null)
-                   
-                    {{-- <a class="navbar-brand" href="{{ url('/allusers') }}">AllUser$Orders</a>  --}}
-                    <a class="navbar-brand" href="{{ url('/all') }}">DashBord</a>
-                        {{-- @lang('admin.allusers') </a> --}}
-                        
-                          
-                @endif 
-                {{-- @if (Auth::user()!=null)
-                <a class="navbar-brand" href="{{route('products.create')}}">ADD PRODUCT</a>
-                <a class="navbar-brand" href="/myproduct">MY PRODUCT</a>
-                @endif --}}
-                {{-- <div class="dropdown">
-                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                      select lang
-                    </button>
-                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                      <a class="dropdown-item" href="{{route('lang','en')}}">en</a>
-                      <a class="dropdown-item" href="{{route('lang','ar')}}">ar</a>
-                      
-                    </div>
-                  </div> --}}
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <!-- Left Side Of Navbar -->
-                    <ul class="navbar-nav mr-auto">
-
-                    </ul>
-
-                    <!-- Right Side Of Navbar --> 
-                   
-                    <ul class="navbar-nav ml-auto">
+<body >  
+<nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
+	    <div class="container">
+		      <a class="navbar-brand" href="index.html"><span class="flaticon-pizza-1 mr-1"></span>Pizza<br><small>Delicous</small></a>
+		      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
+		        <span class="oi oi-menu"></span> Menu
+		      </button>
+	      <div class="collapse navbar-collapse" id="ftco-nav">
+	        <ul class="navbar-nav ml-auto">
+	          <li class="nav-item active"><a href="{{ url('/hello') }}" class="nav-link">Home</a></li>
+	          <li class="nav-item"><a href="{{ url('/allpizza') }}" class="nav-link">Menu</a></li>
+              @if (Auth::user()!=null)
+             
+	          <li class="nav-item"><a href="/myorder" class="nav-link">MY Order</a></li>
+              <li class="nav-item"><a href="{{ url('/myinformation') }}" class="nav-link">Profil</a></li>
+              @endif
+	          <li class="nav-item"><a href="{{ url('/about') }}" class="nav-link">About</a></li>
+	          <li class="nav-item"><a href="{{ url('/contactus') }}" class="nav-link">Contact</a></li> 
+              @if (Auth::user()!=null) 
+              <li class="nav-item"><a href="{{ url('/all') }}" class="nav-link" >DashBord</a></li>
+          @endif 
+	        </ul> 
+            <ul class="navbar-nav ml-auto">
                         <!-- Authentication Links -->
                         @guest 
                         
@@ -107,10 +96,12 @@
                             </li>
                         @endguest
                     </ul>
-                </div>
-            </div> 
-        
-        </nav>
+	      </div>
+		  </div>
+	  </nav> 
+                   
+                     
+              
 
         <main class="py-4"> 
             <div class="well">
@@ -120,6 +111,23 @@
             </main>
         </div>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js" ></script>
+        
+  <script src="{{ asset('js/jquery.min.js') }}"></script>
+  <script src="{{ asset('js/jquery-migrate-3.0.1.min.js') }}"></script>
+  <script src="{{ asset('js/popper.min.js') }}"></script>
+  <script src="{{ asset('js/bootstrap.min.js') }}"></script>
+  <script src="{{ asset('js/jquery.easing.1.3.js') }}"></script>
+  <script src="{{ asset('js/jquery.waypoints.min.js') }}"></script>
+  <script src="{{ asset('js/jquery.stellar.min.js') }}"></script>
+  <script src="{{ asset('js/owl.carousel.min.js') }}"></script>
+  <script src="{{ asset('js/jquery.magnific-popup.min.js') }}"></script>
+  <script src="{{ asset('js/aos.js') }}"></script>
+  <script src="{{ asset('js/jquery.animateNumber.min.js') }}"></script>
+  <script src="{{ asset('js/bootstrap-datepicker.js') }}"></script>
+  <script src="{{ asset('js/jquery.timepicker.min.js') }}"></script>
+  <script src="{{ asset('js/scrollax.min.js') }}"></script>
+  <script src="{{ asset('js/google-map.js') }}"></script>
+  <script src="{{ asset('js/main.js') }}"></script>
     
     </body>
     </html>
